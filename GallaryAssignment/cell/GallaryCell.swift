@@ -8,6 +8,7 @@ class GallaryCell: UITableViewCell {
     @IBOutlet weak var likeIconImageView: UIImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
     
+    static let identifier = "GallaryCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
