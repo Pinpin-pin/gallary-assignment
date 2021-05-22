@@ -15,6 +15,8 @@
 		A97FE7F82658D0B700B8C512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97FE7F62658D0B700B8C512 /* LaunchScreen.storyboard */; };
 		A97FE8032658D0B700B8C512 /* GallaryAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE8022658D0B700B8C512 /* GallaryAssignmentTests.swift */; };
 		A97FE80E2658D0B700B8C512 /* GallaryAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE80D2658D0B700B8C512 /* GallaryAssignmentUITests.swift */; };
+		A97FE81E2658DA0B00B8C512 /* GallaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE81C2658DA0B00B8C512 /* GallaryCell.swift */; };
+		A97FE81F2658DA0B00B8C512 /* GallaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97FE81D2658DA0B00B8C512 /* GallaryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,20 @@
 		A97FE8092658D0B700B8C512 /* GallaryAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GallaryAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97FE80D2658D0B700B8C512 /* GallaryAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryAssignmentUITests.swift; sourceTree = "<group>"; };
 		A97FE80F2658D0B700B8C512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A97FE81C2658DA0B00B8C512 /* GallaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryCell.swift; sourceTree = "<group>"; };
+		A97FE81D2658DA0B00B8C512 /* GallaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryCell.xib; sourceTree = "<group>"; };
+		A9EF14252658E38C0035F8CC /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		A9EF14262658E38C0035F8CC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		A9EF14272658E38C0035F8CC /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A9EF14282658E38C0035F8CC /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		A9EF14292658E38C0035F8CC /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		A9EF142A2658E38C0035F8CC /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		A9EF142B2658E38C0035F8CC /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A9EF142C2658E38D0035F8CC /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		A9EF142D2658E38D0035F8CC /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		A9EF142E2658E38D0035F8CC /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		A9EF142F2658E38D0035F8CC /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		A9EF14302658E38D0035F8CC /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +115,8 @@
 		A97FE7EA2658D0B500B8C512 /* GallaryAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				A9EF14242658E3740035F8CC /* fonts */,
+				A97FE81B2658D9D700B8C512 /* cell */,
 				A97FE7EB2658D0B500B8C512 /* AppDelegate.swift */,
 				A97FE7ED2658D0B500B8C512 /* SceneDelegate.swift */,
 				A97FE7EF2658D0B500B8C512 /* ViewController.swift */,
@@ -126,6 +144,34 @@
 				A97FE80F2658D0B700B8C512 /* Info.plist */,
 			);
 			path = GallaryAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		A97FE81B2658D9D700B8C512 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A97FE81C2658DA0B00B8C512 /* GallaryCell.swift */,
+				A97FE81D2658DA0B00B8C512 /* GallaryCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		A9EF14242658E3740035F8CC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A9EF142F2658E38D0035F8CC /* Roboto-Black.ttf */,
+				A9EF142B2658E38C0035F8CC /* Roboto-BlackItalic.ttf */,
+				A9EF14262658E38C0035F8CC /* Roboto-Bold.ttf */,
+				A9EF14272658E38C0035F8CC /* Roboto-BoldItalic.ttf */,
+				A9EF142A2658E38C0035F8CC /* Roboto-Italic.ttf */,
+				A9EF14302658E38D0035F8CC /* Roboto-Light.ttf */,
+				A9EF142D2658E38D0035F8CC /* Roboto-LightItalic.ttf */,
+				A9EF14292658E38C0035F8CC /* Roboto-Medium.ttf */,
+				A9EF14252658E38C0035F8CC /* Roboto-MediumItalic.ttf */,
+				A9EF142E2658E38D0035F8CC /* Roboto-Regular.ttf */,
+				A9EF142C2658E38D0035F8CC /* Roboto-Thin.ttf */,
+				A9EF14282658E38C0035F8CC /* Roboto-ThinItalic.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97FE81F2658DA0B00B8C512 /* GallaryCell.xib in Resources */,
 				A97FE7F82658D0B700B8C512 /* LaunchScreen.storyboard in Resources */,
 				A97FE7F52658D0B700B8C512 /* Assets.xcassets in Resources */,
 				A97FE7F32658D0B500B8C512 /* Main.storyboard in Resources */,
@@ -258,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97FE81E2658DA0B00B8C512 /* GallaryCell.swift in Sources */,
 				A97FE7F02658D0B500B8C512 /* ViewController.swift in Sources */,
 				A97FE7EC2658D0B500B8C512 /* AppDelegate.swift in Sources */,
 				A97FE7EE2658D0B500B8C512 /* SceneDelegate.swift in Sources */,
