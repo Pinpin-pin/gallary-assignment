@@ -11,6 +11,7 @@ struct GalleryListResponse: Decodable {
         case totalPage = "total_pages"
         case photos
     }
+    
 }
 struct GalleryResponse: Decodable {
     let id: Int?

@@ -26,6 +26,13 @@
 		A9EF147F265A55DB0035F8CC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9EF14262658E38C0035F8CC /* Roboto-Bold.ttf */; };
 		A9EF1480265A55DE0035F8CC /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9EF142E2658E38D0035F8CC /* Roboto-Regular.ttf */; };
 		A9EF1484265A5E060035F8CC /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1483265A5E060035F8CC /* ImageExtension.swift */; };
+		A9EF1486265A65E70035F8CC /* GalleryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1485265A65E70035F8CC /* GalleryViewModelProtocol.swift */; };
+		A9EF1488265A67BA0035F8CC /* GalleryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1487265A67BA0035F8CC /* GalleryServiceProtocol.swift */; };
+		A9EF148A265A681D0035F8CC /* MockGalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1489265A681D0035F8CC /* MockGalleryService.swift */; };
+		A9EF148C265A69730035F8CC /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF148B265A69730035F8CC /* ErrorModel.swift */; };
+		A9EF1492265A7A400035F8CC /* GalleryModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1491265A7A400035F8CC /* GalleryModelTest.swift */; };
+		A9EF1494265A90320035F8CC /* FormatNumberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1493265A90320035F8CC /* FormatNumberTest.swift */; };
+		A9EF1496265A93130035F8CC /* ConvertHtmlStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1495265A93130035F8CC /* ConvertHtmlStringTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,13 @@
 		A9EF147B265A541D0035F8CC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A9EF147D265A546A0035F8CC /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		A9EF1483265A5E060035F8CC /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		A9EF1485265A65E70035F8CC /* GalleryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelProtocol.swift; sourceTree = "<group>"; };
+		A9EF1487265A67BA0035F8CC /* GalleryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryServiceProtocol.swift; sourceTree = "<group>"; };
+		A9EF1489265A681D0035F8CC /* MockGalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGalleryService.swift; sourceTree = "<group>"; };
+		A9EF148B265A69730035F8CC /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		A9EF1491265A7A400035F8CC /* GalleryModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModelTest.swift; sourceTree = "<group>"; };
+		A9EF1493265A90320035F8CC /* FormatNumberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatNumberTest.swift; sourceTree = "<group>"; };
+		A9EF1495265A93130035F8CC /* ConvertHtmlStringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHtmlStringTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +153,12 @@
 		A97FE8012658D0B700B8C512 /* GallaryAssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				A9EF1497265A991F0035F8CC /* MockService */,
 				A97FE8022658D0B700B8C512 /* GallaryAssignmentTests.swift */,
+				A9EF1491265A7A400035F8CC /* GalleryModelTest.swift */,
 				A97FE8042658D0B700B8C512 /* Info.plist */,
+				A9EF1493265A90320035F8CC /* FormatNumberTest.swift */,
+				A9EF1495265A93130035F8CC /* ConvertHtmlStringTest.swift */,
 			);
 			path = GallaryAssignmentTests;
 			sourceTree = "<group>";
@@ -176,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A9EF1475265961DC0035F8CC /* GalleryViewModel.swift */,
+				A9EF1485265A65E70035F8CC /* GalleryViewModelProtocol.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,6 +202,7 @@
 		A9EF14702659602B0035F8CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9EF148B265A69730035F8CC /* ErrorModel.swift */,
 				A9EF146D265955E20035F8CC /* GalleryModel.swift */,
 			);
 			path = Models;
@@ -203,6 +223,7 @@
 			children = (
 				A9EF1477265964090035F8CC /* Model */,
 				A9EF14732659608A0035F8CC /* GalleryService.swift */,
+				A9EF1487265A67BA0035F8CC /* GalleryServiceProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +244,14 @@
 				A9EF1483265A5E060035F8CC /* ImageExtension.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		A9EF1497265A991F0035F8CC /* MockService */ = {
+			isa = PBXGroup;
+			children = (
+				A9EF1489265A681D0035F8CC /* MockGalleryService.swift */,
+			);
+			path = MockService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,8 +388,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A97FE81E2658DA0B00B8C512 /* GalleryCell.swift in Sources */,
+				A9EF1488265A67BA0035F8CC /* GalleryServiceProtocol.swift in Sources */,
 				A9EF147E265A546A0035F8CC /* UIFontExtensions.swift in Sources */,
 				A9EF1476265961DC0035F8CC /* GalleryViewModel.swift in Sources */,
+				A9EF1486265A65E70035F8CC /* GalleryViewModelProtocol.swift in Sources */,
 				A97FE7F02658D0B500B8C512 /* GalleryViewController.swift in Sources */,
 				A97FE7EC2658D0B500B8C512 /* AppDelegate.swift in Sources */,
 				A97FE7EE2658D0B500B8C512 /* SceneDelegate.swift in Sources */,
@@ -369,6 +400,7 @@
 				A9EF146E265955E20035F8CC /* GalleryModel.swift in Sources */,
 				A9EF1484265A5E060035F8CC /* ImageExtension.swift in Sources */,
 				A9EF1479265964190035F8CC /* GalleryResponse.swift in Sources */,
+				A9EF148C265A69730035F8CC /* ErrorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +408,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9EF148A265A681D0035F8CC /* MockGalleryService.swift in Sources */,
 				A97FE8032658D0B700B8C512 /* GallaryAssignmentTests.swift in Sources */,
+				A9EF1496265A93130035F8CC /* ConvertHtmlStringTest.swift in Sources */,
+				A9EF1494265A90320035F8CC /* FormatNumberTest.swift in Sources */,
+				A9EF1492265A7A400035F8CC /* GalleryModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

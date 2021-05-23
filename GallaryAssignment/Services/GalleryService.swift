@@ -1,13 +1,14 @@
 import Foundation
 
-class GalleryService :  NSObject {
+class GalleryService : NSObject, GalleryServiceProtocol {
     private let host = "api.500px.com"
-    
     internal enum Path {
       internal static let popular = "/v1/photos"
     }
     
-    func getGalleryData(feature: String, page: Int,completion : @escaping (GalleryListResponse) -> ()){
+    func getGalleryData(feature: String, page: Int,
+                        onSuccess: @escaping (GalleryListResponse) -> Void,
+                        onError: @escaping () -> Void){
         let queryItems: [URLQueryItem] = [.init(name: "feature", value: "popular"),
                                           .init(name: "page", value: String(page))]
         
@@ -16,7 +17,10 @@ class GalleryService :  NSObject {
             if let data = data {
                 let jsonDecoder = JSONDecoder()
                 let gallery = try! jsonDecoder.decode(GalleryListResponse.self, from: data)
-                completion(gallery)
+                onSuccess(gallery)
+            }
+            if error != nil {
+                onError()
             }
         }.resume()
     }

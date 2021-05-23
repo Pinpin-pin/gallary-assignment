@@ -32,9 +32,6 @@ extension String {
             }
         }
         mattrStr.endEditing()
-        /// remove new line for the last character
-        /// this usually happens when html has tag <p></p> which auto generates new line
-        /// reference: https://stackoverflow.com/questions/37952687/how-to-remove-padding-under-last-paragraph-from-nsattributedstring-created-from
         if let lastCharacter = mattrStr.string.last, lastCharacter == "\n" {
             mattrStr.deleteCharacters(in: NSRange(location: mattrStr.length - 1, length: 1))
         }
@@ -46,9 +43,13 @@ extension String {
             return self
         }
         guard let str = Double(self) else {
-            return self
+            return ""
         }
 
+        if str < 0 {
+            return ""
+        }
+        
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "US_us")
         let myNumber = NSNumber(value: str)

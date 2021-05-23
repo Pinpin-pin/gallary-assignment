@@ -1,26 +1,36 @@
 import Foundation
 
-class GalleryViewModel : NSObject {
+class GalleryViewModel: NSObject, GalleryViewModelProtocol {
+    private var galleryService: GalleryServiceProtocol!
     
-    private var galleryService : GalleryService!
-    private(set) var galleryModel : Array<Gallery>! {
+    var galleryModel : Array<Gallery>? {
         didSet {
             self.bindGalleryDataViewModelToController()
         }
     }
     
-    var bindGalleryDataViewModelToController : (() -> ()) = {}
+    var errorModel: ErrorModel? {
+        didSet {
+            self.bindErrorController()
+        }
+    }
     
-    override init() {
+    var bindGalleryDataViewModelToController: (() -> ()) = {}
+    var bindErrorController: (() -> ()) = {}
+    
+    required init(galleryService: GalleryServiceProtocol) {
         super.init()
-        self.galleryService =  GalleryService()
+        self.galleryService =  galleryService
         callGalleryService()
     }
     
     private func callGalleryService() {
-        self.galleryService.getGalleryData(feature: GalleryFeature.popular.rawValue, page: 1) { (response) in
-            let galleryList = GalleryModel().toModel(galleryListResponse: response)
-            self.galleryModel = galleryList?.photos
+        galleryService.getGalleryData(feature: GalleryFeature.popular.rawValue, page: 1) { galleryList in
+            let galleryList = GalleryModel().toModel(galleryListResponse: galleryList)
+            self.galleryModel = galleryList?.photos ?? nil
+        } onError: {
+            let errMsg = ErrorModel(title: "Sorry", message: "Internal server error, please try again later")
+            self.errorModel = errMsg
         }
     }
     

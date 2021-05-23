@@ -28,7 +28,7 @@ class GalleryViewController: UIViewController {
     }
     
     private func bindingGalleryViewModel() {
-        galleryViewModel = GalleryViewModel()
+        galleryViewModel = GalleryViewModel(galleryService: GalleryService())
         galleryViewModel.bindGalleryDataViewModelToController = {
             self.updateDataSource()
             self.setupEndPullToRefresh()
@@ -38,7 +38,10 @@ class GalleryViewController: UIViewController {
     private func updateDataSource() {
         var snapShot = NSDiffableDataSourceSnapshot<String, Gallery>()
         snapShot.appendSections([""])
-        snapShot.appendItems(galleryViewModel.galleryModel)
+        guard let gallery = galleryViewModel.galleryModel else {
+            return
+        }
+        snapShot.appendItems(gallery)
         dataSource.apply(snapShot)
     }
     
