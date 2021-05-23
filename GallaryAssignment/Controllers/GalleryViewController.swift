@@ -20,8 +20,8 @@ class GalleryViewController: UIViewController {
                 return UITableViewCell()
             }
             cell.titleLabel.text = item.name
-            cell.descriptionLabel.text = item.description
-            cell.likeCountLabel.text = String(item.positiveVotesCount ?? 0)
+            cell.descriptionLabel.attributedText = item.description?.htmlToAttributedString()
+            cell.likeCountLabel.text = String(item.positiveVotesCount ?? 0).toCurrencyFormat()
             return cell
         })
     }
