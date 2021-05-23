@@ -4,37 +4,37 @@ import XCTest
 
 class FormatNumberTest: XCTestCase {
 
-    func testFormatNumberBelow1000ShouldReturnSameValue() {
+    func testWhenCallFormatNumberBelow1000ShouldReturnSameValue() {
         let likeCount = "123"
         let likeCountFormat = likeCount.toCurrencyFormat()
         XCTAssertEqual(likeCountFormat, "123")
     }
     
-    func testFormatNumberOver1000ShouldReturnComma() {
+    func testWhenCallFormatNumberOver1000ShouldReturnComma() {
         let likeCount = "1234"
         let likeCountFormat = likeCount.toCurrencyFormat()
         XCTAssertEqual(likeCountFormat, "1,234")
     }
     
-    func testFormatNumberErrorNullValueShouldReturnEmptyString() {
+    func testWhenCallFormatNumberErrorNullValueShouldReturnEmptyString() {
         let likeCount = "null"
         let likeCountFormat = likeCount.toCurrencyFormat()
         XCTAssertEqual(likeCountFormat, "")
     }
     
-    func testFormatNumberEmptyStringShouldReturnEmptyString() {
+    func testWhenCallFormatNumberEmptyStringShouldReturnEmptyString() {
         let likeCount = " "
         let likeCountFormat = likeCount.toCurrencyFormat()
         XCTAssertEqual(likeCountFormat, "")
     }
     
-    func testFormatNumberMoreThan6DigitsShouldReturn2Comma() {
+    func testWhenCallFormatNumberMoreThan6DigitsShouldReturn2Comma() {
         let likeCount = "123456789"
         let likeCountFormat = likeCount.toCurrencyFormat()
         XCTAssertEqual(likeCountFormat, "123,456,789")
     }
 
-    func testFormatNumberLessthanZeroShouldReturnEmptyString() {
+    func testWhenCallFormatNumberLessthanZeroShouldReturnEmptyString() {
         let likeCount = "-123456789"
         let likeCountFormat = likeCount.toCurrencyFormat()
         XCTAssertEqual(likeCountFormat, "")

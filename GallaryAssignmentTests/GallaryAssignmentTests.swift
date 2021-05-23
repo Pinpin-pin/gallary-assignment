@@ -2,7 +2,7 @@ import XCTest
 @testable import GallaryAssignment
 
 class GallaryAssignmentTests: XCTestCase {
-    func testGetGalleryServiceSuccessShouldReturnGalleryModel() {
+    func testWhenGetGalleryServiceSuccessShouldReturnGalleryModel() {
         let galleryService = MockGalleryService()
         let viewModel = GalleryViewModel(galleryService: galleryService)
         XCTAssertEqual(viewModel.galleryModel?.count, 1)
@@ -10,19 +10,13 @@ class GallaryAssignmentTests: XCTestCase {
         
     }
     
-    func testGetGalleryServiceFailShouldReturnErrorModel() {
+    func testWhenGetGalleryServiceFailShouldReturnErrorModel() {
         let galleryService = MockGalleryServiceFail()
         let viewModel = GalleryViewModel(galleryService: galleryService)
         XCTAssertEqual(viewModel.galleryModel, nil)
         XCTAssertEqual(viewModel.errorModel?.title, "Sorry")
         XCTAssertEqual(viewModel.errorModel?.message, "Internal server error, please try again later")
     }
-    
-    func testWhenCreateGalleryViewModelShouldCallGetGallery() {
-        let galleryService = MockGalleryServiceFail()
-        let galleryViewModel = MockGalleryViewModel(galleryService: galleryService)
-        XCTAssertEqual(galleryViewModel.countCallGallery, 1)
-    }
-    
+
 }
 

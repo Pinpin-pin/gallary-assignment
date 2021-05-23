@@ -2,7 +2,7 @@ import XCTest
 @testable import GallaryAssignment
 
 class GalleryModelTest: XCTestCase {
-    func testMapGalleryResponse() {
+    func testWhenMapGalleryResponseShouldReturnCorrectGalleryModel() {
         let galleryResponse: Array<GalleryResponse> = [GalleryResponse(id: 1032485439,
                                                name: "Springtime",
                                                positiveVotesCount: 4264,
@@ -21,7 +21,7 @@ class GalleryModelTest: XCTestCase {
         XCTAssertEqual(model?.photos[0].imageUrl, galleryResponse[0].imageUrls?[0])
     }
     
-    func testMapGalleryResponseWithNoImage() {
+    func testWhenMapGalleryResponseWithNoImageShouldReturnNilImage() {
         let galleryResponse: Array<GalleryResponse> = [GalleryResponse(id: 1032485439,
                                                name: "Springtime",
                                                positiveVotesCount: 4264,
