@@ -2,11 +2,10 @@ import UIKit
 
 extension UIImageView {
     public func imageFromURL(urlString: String) {
-        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        activityIndicator.startAnimating()
+        let indicator = setupIndicatorView()
+        
         if self.image == nil{
-            self.addSubview(activityIndicator)
+            self.addSubview(indicator)
         }
 
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
@@ -17,10 +16,17 @@ extension UIImageView {
             }
             DispatchQueue.main.async(execute: { () -> Void in
                 let image = UIImage(data: data!)
-                activityIndicator.removeFromSuperview()
+                indicator.removeFromSuperview()
                 self.image = image
             })
 
         }).resume()
+    }
+    
+    private func setupIndicatorView() -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        activityIndicator.startAnimating()
+        return activityIndicator
     }
 }

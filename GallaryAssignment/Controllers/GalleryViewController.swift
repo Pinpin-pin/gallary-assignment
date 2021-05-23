@@ -6,10 +6,13 @@ class GalleryViewController: UIViewController {
     
     private var dataSource: UITableViewDiffableDataSource<String, Gallery>!
     private var galleryViewModel : GalleryViewModel!
+    var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        bindingGalleryUI()
+        bindingGalleryViewModel()
+        setupPullToRefresh()
     }
     
     private func setupTableView() {
@@ -24,10 +27,11 @@ class GalleryViewController: UIViewController {
         })
     }
     
-    private func bindingGalleryUI() {
+    private func bindingGalleryViewModel() {
         galleryViewModel = GalleryViewModel()
         galleryViewModel.bindGalleryDataViewModelToController = {
             self.updateDataSource()
+            self.setupEndPullToRefresh()
         }
     }
     
@@ -38,7 +42,19 @@ class GalleryViewController: UIViewController {
         dataSource.apply(snapShot)
     }
     
+    private func setupPullToRefresh() {
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        galleryTableView.addSubview(refreshControl)
+    }
+    @objc func refresh(_ sender: AnyObject) {
+        bindingGalleryViewModel()
+    }
     
+    private func setupEndPullToRefresh() {
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 
