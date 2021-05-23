@@ -13,7 +13,7 @@ class GallaryAssignmentTests: XCTestCase {
     func testWhenGetGalleryServiceFailShouldReturnErrorModel() {
         let galleryService = MockGalleryServiceFail()
         let viewModel = GalleryViewModel(galleryService: galleryService)
-        XCTAssertEqual(viewModel.galleryModel, nil)
+        XCTAssertTrue(viewModel.galleryModel ==  nil)
         XCTAssertEqual(viewModel.errorModel?.title, "Sorry")
         XCTAssertEqual(viewModel.errorModel?.message, "Internal server error, please try again later")
     }

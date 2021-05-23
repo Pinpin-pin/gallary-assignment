@@ -43,10 +43,10 @@ class GalleryViewModel: NSObject, GalleryViewModelProtocol {
     }
     
     private func manageAddOrAppendGalleryResponse(galleryPhotos: Array<Gallery>) {
-        if (self.galleryModel?.count ?? 0 > 0) {
-            self.galleryModel?.append(contentsOf: galleryPhotos)
-        } else {
+        if (self.galleryModel == nil) {
             self.galleryModel = galleryPhotos
+        } else {
+            self.galleryModel?.append(contentsOf: galleryPhotos)
         }
     }
     
