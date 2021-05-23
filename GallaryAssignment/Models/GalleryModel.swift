@@ -26,7 +26,7 @@ struct GalleryList {
     
 }
 
-struct Gallery: Hashable {
+struct Gallery {
     let id: Int?
     let name: String?
     let positiveVotesCount: Int?

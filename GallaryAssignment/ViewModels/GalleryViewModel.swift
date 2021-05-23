@@ -2,17 +2,17 @@ import Foundation
 
 class GalleryViewModel: NSObject, GalleryViewModelProtocol {
     
-    private var galleryService: GalleryServiceProtocol!
+    private(set) var galleryService: GalleryServiceProtocol!
 
     private(set) var loadMoreGallery: LoadMoreGallery = LoadMoreGallery()
     
-    var galleryModel : Array<Gallery>? {
+    private(set) var galleryModel : Array<Gallery>? {
         didSet {
             self.bindGalleryDataViewModelToController()
         }
     }
     
-    var errorModel: ErrorModel? {
+    private(set) var errorModel: ErrorModel? {
         didSet {
             self.bindErrorController()
         }
@@ -33,16 +33,20 @@ class GalleryViewModel: NSObject, GalleryViewModelProtocol {
         }
         galleryService.getGalleryData(feature: GalleryFeature.popular.rawValue, page: loadMoreGallery.currentPage + 1) { galleryList in
             let galleryList = GalleryModel().toModel(galleryListResponse: galleryList)
-            if (self.galleryModel?.count ?? 0 > 0) {
-                self.galleryModel?.append(contentsOf: galleryList?.photos ?? [])
-            } else {
-                self.galleryModel = galleryList?.photos ?? []
-            }
+            self.manageAddOrAppendGalleryResponse(galleryPhotos: galleryList?.photos ?? [])
             self.loadMoreGallery = LoadMoreGallery(currentPage: galleryList?.currentPage ?? 0,
                                                    totalPage: galleryList?.totalPage ?? 0)
         } onError: {
             let errMsg = ErrorModel(title: "Sorry", message: "Internal server error, please try again later")
             self.errorModel = errMsg
+        }
+    }
+    
+    private func manageAddOrAppendGalleryResponse(galleryPhotos: Array<Gallery>) {
+        if (self.galleryModel?.count ?? 0 > 0) {
+            self.galleryModel?.append(contentsOf: galleryPhotos)
+        } else {
+            self.galleryModel = galleryPhotos
         }
     }
     
