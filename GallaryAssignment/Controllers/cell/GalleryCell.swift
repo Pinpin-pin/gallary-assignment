@@ -9,6 +9,7 @@ class GalleryCell: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     
     static let identifier = "GalleryCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupImageLayer()
@@ -27,5 +28,7 @@ class GalleryCell: UITableViewCell {
         titleLabel.text = gallery.name
         descriptionLabel.attributedText = gallery.description?.htmlToAttributedString()
         likeCountLabel.text = String(gallery.positiveVotesCount ?? 0).toCurrencyFormat()
+        gallaryImageView.imageFromURL(urlString: gallery.imageUrl ?? "")
+        gallaryImageView.contentMode = .scaleAspectFill
     }
 }

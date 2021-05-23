@@ -25,6 +25,7 @@
 		A9EF147E265A546A0035F8CC /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF147D265A546A0035F8CC /* UIFontExtensions.swift */; };
 		A9EF147F265A55DB0035F8CC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9EF14262658E38C0035F8CC /* Roboto-Bold.ttf */; };
 		A9EF1480265A55DE0035F8CC /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9EF142E2658E38D0035F8CC /* Roboto-Regular.ttf */; };
+		A9EF1484265A5E060035F8CC /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1483265A5E060035F8CC /* ImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A9EF1478265964190035F8CC /* GalleryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryResponse.swift; sourceTree = "<group>"; };
 		A9EF147B265A541D0035F8CC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A9EF147D265A546A0035F8CC /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		A9EF1483265A5E060035F8CC /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			children = (
 				A9EF147B265A541D0035F8CC /* StringExtension.swift */,
 				A9EF147D265A546A0035F8CC /* UIFontExtensions.swift */,
+				A9EF1483265A5E060035F8CC /* ImageExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				A9EF147C265A541D0035F8CC /* StringExtension.swift in Sources */,
 				A9EF14742659608A0035F8CC /* GalleryService.swift in Sources */,
 				A9EF146E265955E20035F8CC /* GalleryModel.swift in Sources */,
+				A9EF1484265A5E060035F8CC /* ImageExtension.swift in Sources */,
 				A9EF1479265964190035F8CC /* GalleryResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
