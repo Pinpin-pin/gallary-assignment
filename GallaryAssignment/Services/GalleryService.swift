@@ -1,16 +1,35 @@
 import Foundation
 
 class GalleryService :  NSObject {
+    private let host = "api.500px.com"
     
-    private let sourcesURL = URL(string: "https://api.500px.com/v1/photos?feature=popular&page=1")!
+    internal enum Path {
+      internal static let popular = "/v1/photos"
+    }
     
-    func getGalleryData(completion : @escaping (GalleryListResponse) -> ()){
-        URLSession.shared.dataTask(with: sourcesURL) { (data, urlResponse, error) in
+    func getGalleryData(feature: String, page: Int,completion : @escaping (GalleryListResponse) -> ()){
+        let queryItems: [URLQueryItem] = [.init(name: "feature", value: "popular"),
+                                          .init(name: "page", value: String(page))]
+        
+        let request = getUrlRequest(path: Path.popular, queryItems: queryItems)
+        URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
             if let data = data {
                 let jsonDecoder = JSONDecoder()
                 let gallery = try! jsonDecoder.decode(GalleryListResponse.self, from: data)
-                    completion(gallery)
+                completion(gallery)
             }
         }.resume()
+    }
+    
+    private func getUrlRequest(path: String, queryItems: [URLQueryItem]) -> URLRequest {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = host
+        urlComponents.path = path
+        
+        urlComponents.queryItems =  queryItems
+        urlComponents.percentEncodedQuery = urlComponents.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        
+        return URLRequest(url: urlComponents.url!)
     }
 }

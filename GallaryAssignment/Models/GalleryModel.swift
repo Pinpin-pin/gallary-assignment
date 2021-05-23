@@ -15,6 +15,9 @@ struct GalleryModel {
     }
 }
 
+enum GalleryFeature: String {
+    case popular
+}
 struct GalleryList {
     let currentPage: Int?
     let totalPage: Int?

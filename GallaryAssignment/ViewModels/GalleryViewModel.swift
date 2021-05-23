@@ -18,7 +18,7 @@ class GalleryViewModel : NSObject {
     }
     
     private func callGalleryService() {
-        self.galleryService.getGalleryData { (response) in
+        self.galleryService.getGalleryData(feature: GalleryFeature.popular.rawValue, page: 1) { (response) in
             let galleryList = GalleryModel().toModel(galleryListResponse: response)
             self.galleryModel = galleryList?.photos
         }
