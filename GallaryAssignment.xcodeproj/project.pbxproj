@@ -15,8 +15,8 @@
 		A97FE7F82658D0B700B8C512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97FE7F62658D0B700B8C512 /* LaunchScreen.storyboard */; };
 		A97FE8032658D0B700B8C512 /* GallaryAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE8022658D0B700B8C512 /* GallaryAssignmentTests.swift */; };
 		A97FE80E2658D0B700B8C512 /* GallaryAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE80D2658D0B700B8C512 /* GallaryAssignmentUITests.swift */; };
-		A97FE81E2658DA0B00B8C512 /* GallaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE81C2658DA0B00B8C512 /* GallaryCell.swift */; };
-		A97FE81F2658DA0B00B8C512 /* GallaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97FE81D2658DA0B00B8C512 /* GallaryCell.xib */; };
+		A97FE81E2658DA0B00B8C512 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE81C2658DA0B00B8C512 /* GalleryCell.swift */; };
+		A97FE81F2658DA0B00B8C512 /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97FE81D2658DA0B00B8C512 /* GalleryCell.xib */; };
 		A9EF146E265955E20035F8CC /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF146D265955E20035F8CC /* GalleryModel.swift */; };
 		A9EF14742659608A0035F8CC /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF14732659608A0035F8CC /* GalleryService.swift */; };
 		A9EF1476265961DC0035F8CC /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1475265961DC0035F8CC /* GalleryViewModel.swift */; };
@@ -59,8 +59,8 @@
 		A97FE8092658D0B700B8C512 /* GallaryAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GallaryAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97FE80D2658D0B700B8C512 /* GallaryAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryAssignmentUITests.swift; sourceTree = "<group>"; };
 		A97FE80F2658D0B700B8C512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A97FE81C2658DA0B00B8C512 /* GallaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryCell.swift; sourceTree = "<group>"; };
-		A97FE81D2658DA0B00B8C512 /* GallaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryCell.xib; sourceTree = "<group>"; };
+		A97FE81C2658DA0B00B8C512 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		A97FE81D2658DA0B00B8C512 /* GalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCell.xib; sourceTree = "<group>"; };
 		A9EF14262658E38C0035F8CC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		A9EF142E2658E38D0035F8CC /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		A9EF146D265955E20035F8CC /* GalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 		A97FE81B2658D9D700B8C512 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				A97FE81C2658DA0B00B8C512 /* GallaryCell.swift */,
-				A97FE81D2658DA0B00B8C512 /* GallaryCell.xib */,
+				A97FE81C2658DA0B00B8C512 /* GalleryCell.swift */,
+				A97FE81D2658DA0B00B8C512 /* GalleryCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9EF1480265A55DE0035F8CC /* Roboto-Regular.ttf in Resources */,
-				A97FE81F2658DA0B00B8C512 /* GallaryCell.xib in Resources */,
+				A97FE81F2658DA0B00B8C512 /* GalleryCell.xib in Resources */,
 				A97FE7F82658D0B700B8C512 /* LaunchScreen.storyboard in Resources */,
 				A9EF147F265A55DB0035F8CC /* Roboto-Bold.ttf in Resources */,
 				A97FE7F52658D0B700B8C512 /* Assets.xcassets in Resources */,
@@ -355,7 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97FE81E2658DA0B00B8C512 /* GallaryCell.swift in Sources */,
+				A97FE81E2658DA0B00B8C512 /* GalleryCell.swift in Sources */,
 				A9EF147E265A546A0035F8CC /* UIFontExtensions.swift in Sources */,
 				A9EF1476265961DC0035F8CC /* GalleryViewModel.swift in Sources */,
 				A97FE7F02658D0B500B8C512 /* GalleryViewController.swift in Sources */,

@@ -1,6 +1,6 @@
 import UIKit
 
-class GallaryCell: UITableViewCell {
+class GalleryCell: UITableViewCell {
 
     @IBOutlet weak var gallaryImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -8,7 +8,7 @@ class GallaryCell: UITableViewCell {
     @IBOutlet weak var likeIconImageView: UIImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
     
-    static let identifier = "GallaryCell"
+    static let identifier = "GalleryCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         setupImageLayer()

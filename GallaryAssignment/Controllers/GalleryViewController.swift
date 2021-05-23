@@ -13,10 +13,10 @@ class GalleryViewController: UIViewController {
     }
     
     private func setupTableView() {
-        galleryTableView.register(UINib(nibName: GallaryCell.identifier, bundle: nil), forCellReuseIdentifier: GallaryCell.identifier)
+        galleryTableView.register(UINib(nibName: GalleryCell.identifier, bundle: nil), forCellReuseIdentifier: GalleryCell.identifier)
         
         dataSource = UITableViewDiffableDataSource(tableView: galleryTableView, cellProvider: { tableView, indexPath, item in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: GallaryCell.identifier) as? GallaryCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: GalleryCell.identifier) as? GalleryCell else {
                 return UITableViewCell()
             }
             cell.setupContent(gallery: item)
