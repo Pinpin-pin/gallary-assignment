@@ -17,17 +17,13 @@ struct GalleryResponse: Decodable {
     let name: String?
     let positiveVotesCount: Int?
     let description: String?
-    let images: Array<ImageResponse>?
+    let imageUrls: Array<String>?
     
     private enum CodingKeys: String, CodingKey {
         case id
         case name
         case positiveVotesCount = "positive_votes_count"
         case description
-        case images
+        case imageUrls = "image_url"
     }
-}
-
-struct ImageResponse: Decodable {
-    let url: String?
 }

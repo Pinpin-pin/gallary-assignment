@@ -7,7 +7,7 @@ struct GalleryModel {
                     name: item.name,
                     positiveVotesCount: item.positiveVotesCount,
                     description: item.description,
-                    imageUrl: item.images?.first?.url)
+                    imageUrl: item.imageUrls?.first)
         }) else { return nil }
         return GalleryList(currentPage: galleryListResponse.currentPage,
                            totalPage: galleryListResponse.totalPage,
