@@ -7,16 +7,8 @@ struct AppFontName {
 }
 
 extension UIFont {
-    enum FontName {
-        case regular
-        case bold
-    }
-    
-    static func defaultFont(size: CGFloat = 16, isBold: Bool = false) -> UIFont? {
-        if isBold == false {
-            return UIFont(name: AppFontName.regular, size: size)
-        }
-        return UIFont(name: AppFontName.bold, size: size)
+    static func defaultFont(size: CGFloat = 16) -> UIFont? {
+        return UIFont(name: AppFontName.regular, size: size)
     }
 }
 

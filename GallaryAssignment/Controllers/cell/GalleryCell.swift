@@ -27,11 +27,10 @@ class GalleryCell: UITableViewCell {
     func setupContent(gallery: Gallery) {
         self.gallaryImageView.image = UIImage()
         titleLabel.text = gallery.name
-        descriptionLabel.attributedText = gallery.description?.htmlToAttributedString()
+        descriptionLabel.attributedText = gallery.description?.htmlToAttributedString(fontSize: 12)
         likeCountLabel.text = String(gallery.positiveVotesCount ?? 0).toCurrencyFormat()
         
         self.gallaryImageView.imageFromURL(urlString: gallery.imageUrl ?? "")
         self.gallaryImageView.contentMode = .scaleAspectFill
-        
     }
 }

@@ -19,13 +19,13 @@ class FormatNumberTest: XCTestCase {
     func testWhenCallFormatNumberErrorNullValueShouldReturnEmptyString() {
         let likeCount = "null"
         let likeCountFormat = likeCount.toCurrencyFormat()
-        XCTAssertEqual(likeCountFormat, "")
+        XCTAssertEqual(likeCountFormat, "0")
     }
     
     func testWhenCallFormatNumberEmptyStringShouldReturnEmptyString() {
         let likeCount = " "
         let likeCountFormat = likeCount.toCurrencyFormat()
-        XCTAssertEqual(likeCountFormat, "")
+        XCTAssertEqual(likeCountFormat, "0")
     }
     
     func testWhenCallFormatNumberMoreThan6DigitsShouldReturn2Comma() {
@@ -37,7 +37,13 @@ class FormatNumberTest: XCTestCase {
     func testWhenCallFormatNumberLessthanZeroShouldReturnEmptyString() {
         let likeCount = "-123456789"
         let likeCountFormat = likeCount.toCurrencyFormat()
-        XCTAssertEqual(likeCountFormat, "")
+        XCTAssertEqual(likeCountFormat, "0")
+    }
+    
+    func testWhenCallFormatNumberWithDigitsShouldReturnRoundedNumber() {
+        let likeCount = "1234567.89"
+        let likeCountFormat = likeCount.toCurrencyFormat()
+        XCTAssertEqual(likeCountFormat, "1,234,567")
     }
 }
 

@@ -1,14 +1,14 @@
 import UIKit
 
 extension String {
-    func htmlToAttributedString(truncatingTail: Bool = false) -> NSAttributedString? {
+    func htmlToAttributedString(truncatingTail: Bool = false, fontSize: CGFloat) -> NSAttributedString? {
         let htmlString = self
         let data = htmlString.data(using: String.Encoding.unicode)!
         let attrStr = try? NSAttributedString(
             data: data,
             options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil)
-        let newFont = UIFontMetrics.default.scaledFont(for: UIFont.defaultFont()!)
+        let newFont = UIFontMetrics.default.scaledFont(for: UIFont.defaultFont(size: fontSize)!)
         
         let mattrStr = NSMutableAttributedString(attributedString: attrStr!)
         if truncatingTail {
@@ -23,10 +23,7 @@ extension String {
         mattrStr.enumerateAttribute(.font, in: NSRange(location: 0, length: mattrStr.length), options: .longestEffectiveRangeNotRequired) { (value, range, _) in
             if let oFont = value as? UIFont, let newFontDescriptor = oFont.fontDescriptor.withFamily(newFont.familyName).withSymbolicTraits(oFont.fontDescriptor.symbolicTraits) {
                 
-                var nFont = UIFont(descriptor: newFontDescriptor, size: oFont.pointSize)
-                if oFont.pointSize < 16 {
-                    nFont = UIFont(descriptor: newFontDescriptor, size: 16)
-                }
+                let nFont = UIFont(descriptor: newFontDescriptor, size: oFont.pointSize)
                 mattrStr.removeAttribute(.font, range: range)
                 mattrStr.addAttribute(.font, value: nFont, range: range)
             }
@@ -40,16 +37,15 @@ extension String {
     
     func toCurrencyFormat() -> String {
         if self == "" {
-            return self
+            return "0"
         }
         guard let str = Double(self) else {
-            return ""
+            return "0"
         }
 
         if str < 0 {
-            return ""
+            return "0"
         }
-        
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "US_us")
         let myNumber = NSNumber(value: str)
