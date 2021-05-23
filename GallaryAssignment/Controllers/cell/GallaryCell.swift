@@ -11,13 +11,21 @@ class GallaryCell: UITableViewCell {
     static let identifier = "GallaryCell"
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupImageLayer()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    
+    func setupImageLayer() {
+        gallaryImageView.layer.cornerRadius = 4
+    }
+    
+    func setupContent(gallery: Gallery) {
+        titleLabel.text = gallery.name
+        descriptionLabel.attributedText = gallery.description?.htmlToAttributedString()
+        likeCountLabel.text = String(gallery.positiveVotesCount ?? 0).toCurrencyFormat()
+    }
 }

@@ -19,9 +19,7 @@ class GalleryViewController: UIViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: GallaryCell.identifier) as? GallaryCell else {
                 return UITableViewCell()
             }
-            cell.titleLabel.text = item.name
-            cell.descriptionLabel.attributedText = item.description?.htmlToAttributedString()
-            cell.likeCountLabel.text = String(item.positiveVotesCount ?? 0).toCurrencyFormat()
+            cell.setupContent(gallery: item)
             return cell
         })
     }
