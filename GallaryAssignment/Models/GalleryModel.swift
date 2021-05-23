@@ -33,3 +33,8 @@ struct Gallery: Hashable {
     let description: String?
     let imageUrl: String?
 }
+
+struct LoadMoreGallery {
+    var currentPage: Int = 0
+    var totalPage: Int = 0
+}

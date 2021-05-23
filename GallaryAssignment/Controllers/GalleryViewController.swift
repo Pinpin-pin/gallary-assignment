@@ -4,7 +4,6 @@ class GalleryViewController: UIViewController {
     
     @IBOutlet weak var galleryTableView: UITableView!
     
-    private var dataSource: UITableViewDiffableDataSource<String, Gallery>!
     private var galleryViewModel : GalleryViewModel!
     var refreshControl = UIRefreshControl()
     
@@ -17,32 +16,15 @@ class GalleryViewController: UIViewController {
     
     private func setupTableView() {
         galleryTableView.register(UINib(nibName: GalleryCell.identifier, bundle: nil), forCellReuseIdentifier: GalleryCell.identifier)
-        
-        dataSource = UITableViewDiffableDataSource(tableView: galleryTableView, cellProvider: { tableView, indexPath, item in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: GalleryCell.identifier) as? GalleryCell else {
-                return UITableViewCell()
-            }
-            cell.setupContent(gallery: item)
-            return cell
-        })
+        galleryTableView.delegate = self
+        galleryTableView.dataSource = self
     }
     
     private func bindingGalleryViewModel() {
         galleryViewModel = GalleryViewModel(galleryService: GalleryService())
         galleryViewModel.bindGalleryDataViewModelToController = {
-            self.updateDataSource()
-            self.setupEndPullToRefresh()
+            self.setupGalleryData()
         }
-    }
-    
-    private func updateDataSource() {
-        var snapShot = NSDiffableDataSourceSnapshot<String, Gallery>()
-        snapShot.appendSections([""])
-        guard let gallery = galleryViewModel.galleryModel else {
-            return
-        }
-        snapShot.appendItems(gallery)
-        dataSource.apply(snapShot)
     }
     
     private func setupPullToRefresh() {
@@ -53,11 +35,42 @@ class GalleryViewController: UIViewController {
         bindingGalleryViewModel()
     }
     
-    private func setupEndPullToRefresh() {
+    private func setupGalleryData() {
         DispatchQueue.main.async {
+            self.galleryTableView.reloadData()
             self.refreshControl.endRefreshing()
         }
     }
 }
 
-
+extension GalleryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return galleryViewModel.galleryModel?.count ?? 0
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GalleryCell.identifier) as? GalleryCell else {
+            return UITableViewCell()
+        }
+        guard let item = galleryViewModel.galleryModel?[indexPath.row] else { return UITableViewCell() }
+        cell.setupContent(gallery: item)
+        return cell
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        let isLastPage = indexPath.row == galleryViewModel.loadMoreGallery.totalPage
+        
+        if (indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex) && !isLastPage {
+            self.galleryTableView.tableFooterView = createBottomIndicator(tableView: tableView)
+            self.galleryTableView.tableFooterView?.isHidden = false
+            self.galleryViewModel.callGalleryService()
+        }
+    }
+    
+    private func createBottomIndicator(tableView: UITableView) -> UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        return spinner
+    }
+}

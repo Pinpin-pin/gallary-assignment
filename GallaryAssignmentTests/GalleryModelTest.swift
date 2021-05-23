@@ -32,5 +32,5 @@ class GalleryModelTest: XCTestCase {
         XCTAssertEqual(model?.photos.count, 1)
         XCTAssertEqual(model?.photos[0].imageUrl, nil)
     }
-    
+        
 }
