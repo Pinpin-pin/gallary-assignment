@@ -1,5 +1,5 @@
 import Foundation
-
+import UIKit
 struct GalleryModel {
     func toModel(galleryListResponse: GalleryListResponse) -> GalleryList? {
         guard let gallery = galleryListResponse.photos?.map({ item in
@@ -22,16 +22,20 @@ struct GalleryList {
     let currentPage: Int?
     let totalPage: Int?
     let photos: Array<Gallery>
-    
-    
 }
 
-struct Gallery {
+protocol GalleryItem {}
+
+struct Gallery: GalleryItem {
     let id: Int?
     let name: String?
     let positiveVotesCount: Int?
     let description: String?
     let imageUrl: String?
+}
+
+struct ImageInsertion: GalleryItem {
+    let image = UIImage(named: "gallery-image-insertion")
 }
 
 struct LoadMoreGallery {

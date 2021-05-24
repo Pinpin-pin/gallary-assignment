@@ -16,6 +16,7 @@ class GalleryViewController: UIViewController {
     
     private func setupTableView() {
         galleryTableView.register(UINib(nibName: GalleryCell.identifier, bundle: nil), forCellReuseIdentifier: GalleryCell.identifier)
+        galleryTableView.register(UINib(nibName: ImageInsertionCell.identifier, bundle: nil), forCellReuseIdentifier: ImageInsertionCell.identifier)
         galleryTableView.delegate = self
         galleryTableView.dataSource = self
     }
@@ -48,12 +49,25 @@ extension GalleryViewController: UITableViewDelegate, UITableViewDataSource {
         return galleryViewModel.galleryModel?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: GalleryCell.identifier) as? GalleryCell else {
+        guard let item = galleryViewModel.galleryModel?[indexPath.row] else { return UITableViewCell() }
+        
+        guard let galleryCell = tableView.dequeueReusableCell(withIdentifier: GalleryCell.identifier) as? GalleryCell else {
             return UITableViewCell()
         }
-        guard let item = galleryViewModel.galleryModel?[indexPath.row] else { return UITableViewCell() }
-        cell.setupContent(gallery: item)
-        return cell
+        
+        guard let imageInsertionCell = tableView.dequeueReusableCell(withIdentifier: ImageInsertionCell.identifier) as? ImageInsertionCell else {
+            return UITableViewCell()
+        }
+        
+        if item is Gallery {
+            galleryCell.setupContent(gallery: item as! Gallery)
+            return galleryCell
+        }
+        if item is ImageInsertion {
+            imageInsertionCell.setupImage(imageInsertion: item as! ImageInsertion)
+            return imageInsertionCell
+        }
+        return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastSectionIndex = tableView.numberOfSections - 1

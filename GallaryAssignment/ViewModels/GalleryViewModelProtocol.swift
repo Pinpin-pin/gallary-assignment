@@ -3,7 +3,7 @@ import Foundation
 protocol GalleryViewModelProtocol {
     init(galleryService: GalleryServiceProtocol)
     
-    var galleryModel : Array<Gallery>? { get }
+    var galleryModel : Array<GalleryItem>? { get }
     var loadMoreGallery: LoadMoreGallery  { get }
     
     var bindGalleryDataViewModelToController : (() -> ()) { get }

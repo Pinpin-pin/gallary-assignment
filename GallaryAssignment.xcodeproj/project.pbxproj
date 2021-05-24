@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92932DB265BE3E4005970DC /* ImageInsertionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92932D9265BE3E4005970DC /* ImageInsertionCell.swift */; };
+		A92932DC265BE3E4005970DC /* ImageInsertionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A92932DA265BE3E4005970DC /* ImageInsertionCell.xib */; };
 		A97FE7EC2658D0B500B8C512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE7EB2658D0B500B8C512 /* AppDelegate.swift */; };
 		A97FE7EE2658D0B500B8C512 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE7ED2658D0B500B8C512 /* SceneDelegate.swift */; };
 		A97FE7F02658D0B500B8C512 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FE7EF2658D0B500B8C512 /* GalleryViewController.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A92932D9265BE3E4005970DC /* ImageInsertionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInsertionCell.swift; sourceTree = "<group>"; };
+		A92932DA265BE3E4005970DC /* ImageInsertionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageInsertionCell.xib; sourceTree = "<group>"; };
 		A97FE7E82658D0B500B8C512 /* GallaryAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GallaryAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97FE7EB2658D0B500B8C512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97FE7ED2658D0B500B8C512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			children = (
 				A97FE81C2658DA0B00B8C512 /* GalleryCell.swift */,
 				A97FE81D2658DA0B00B8C512 /* GalleryCell.xib */,
+				A92932D9265BE3E4005970DC /* ImageInsertionCell.swift */,
+				A92932DA265BE3E4005970DC /* ImageInsertionCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				A97FE81F2658DA0B00B8C512 /* GalleryCell.xib in Resources */,
 				A97FE7F82658D0B700B8C512 /* LaunchScreen.storyboard in Resources */,
 				A9EF147F265A55DB0035F8CC /* Roboto-Bold.ttf in Resources */,
+				A92932DC265BE3E4005970DC /* ImageInsertionCell.xib in Resources */,
 				A97FE7F52658D0B700B8C512 /* Assets.xcassets in Resources */,
 				A97FE7F32658D0B500B8C512 /* Main.storyboard in Resources */,
 			);
@@ -403,6 +410,7 @@
 				A9EF146E265955E20035F8CC /* GalleryModel.swift in Sources */,
 				A9EF1484265A5E060035F8CC /* ImageExtension.swift in Sources */,
 				A9EF1479265964190035F8CC /* GalleryResponse.swift in Sources */,
+				A92932DB265BE3E4005970DC /* ImageInsertionCell.swift in Sources */,
 				A9EF148C265A69730035F8CC /* ErrorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
