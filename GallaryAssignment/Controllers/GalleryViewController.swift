@@ -26,6 +26,9 @@ class GalleryViewController: UIViewController {
         galleryViewModel.bindGalleryDataViewModelToController = {
             self.setupGalleryData()
         }
+        galleryViewModel.bindErrorController = {
+            self.setupAlertError(error: self.galleryViewModel.errorModel)
+        }
     }
     
     private func setupPullToRefresh() {
@@ -41,6 +44,12 @@ class GalleryViewController: UIViewController {
             self.galleryTableView.reloadData()
             self.refreshControl.endRefreshing()
         }
+    }
+    
+    private func setupAlertError(error: ErrorModel?) {
+        let alert = UIAlertController(title: error?.title ?? "", message: error?.message ?? "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

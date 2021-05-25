@@ -1,17 +1,23 @@
 import Foundation
 import UIKit
+
 struct GalleryModel {
-    func toModel(galleryListResponse: GalleryListResponse) -> GalleryList? {
-        guard let gallery = galleryListResponse.photos?.map({ item in
-            Gallery(id: item.id,
-                    name: item.name,
-                    positiveVotesCount: item.positiveVotesCount,
-                    description: item.description,
-                    imageUrl: item.imageUrls?.first)
-        }) else { return nil }
-        return GalleryList(currentPage: galleryListResponse.currentPage,
-                           totalPage: galleryListResponse.totalPage,
-                           photos: gallery)
+    func toModel(galleryPhotos: Array<GalleryResponse>, offset: Int) -> Array<GalleryItem> {
+        var newItems: Array<GalleryItem> = []
+        for (index, item) in galleryPhotos.enumerated() {
+            if ((index + offset) % 4 == 0 && index + offset != 0) {
+                newItems.append(ImageInsertion())
+            }
+            
+            let galleryItem = Gallery(id: item.id,
+                                      name: item.name,
+                                      positiveVotesCount: item.positiveVotesCount,
+                                      description: item.description,
+                                      imageUrl: item.imageUrls?.first)
+            newItems.append(galleryItem)
+        }
+        
+        return newItems
     }
 }
 

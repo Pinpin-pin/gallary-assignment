@@ -35,7 +35,6 @@
 		A9EF1492265A7A400035F8CC /* GalleryModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1491265A7A400035F8CC /* GalleryModelTest.swift */; };
 		A9EF1494265A90320035F8CC /* FormatNumberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1493265A90320035F8CC /* FormatNumberTest.swift */; };
 		A9EF1496265A93130035F8CC /* ConvertHtmlStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1495265A93130035F8CC /* ConvertHtmlStringTest.swift */; };
-		A9EF1499265AA9880035F8CC /* MockGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF1498265AA9880035F8CC /* MockGalleryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		A9EF1491265A7A400035F8CC /* GalleryModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModelTest.swift; sourceTree = "<group>"; };
 		A9EF1493265A90320035F8CC /* FormatNumberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatNumberTest.swift; sourceTree = "<group>"; };
 		A9EF1495265A93130035F8CC /* ConvertHtmlStringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHtmlStringTest.swift; sourceTree = "<group>"; };
-		A9EF1498265AA9880035F8CC /* MockGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGalleryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				A9EF1489265A681D0035F8CC /* MockGalleryService.swift */,
-				A9EF1498265AA9880035F8CC /* MockGalleryViewModel.swift */,
 			);
 			path = MockService;
 			sourceTree = "<group>";
@@ -424,7 +421,6 @@
 				A9EF1496265A93130035F8CC /* ConvertHtmlStringTest.swift in Sources */,
 				A9EF1494265A90320035F8CC /* FormatNumberTest.swift in Sources */,
 				A9EF1492265A7A400035F8CC /* GalleryModelTest.swift in Sources */,
-				A9EF1499265AA9880035F8CC /* MockGalleryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

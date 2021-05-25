@@ -3,9 +3,7 @@ import Foundation
 class GalleryViewModel: NSObject, GalleryViewModelProtocol {
     
     private(set) var galleryService: GalleryServiceProtocol!
-    
     private(set) var loadMoreGallery: LoadMoreGallery = LoadMoreGallery()
-    
     private(set) var galleryModel : Array<GalleryItem>? {
         didSet {
             self.bindGalleryDataViewModelToController()
@@ -27,16 +25,29 @@ class GalleryViewModel: NSObject, GalleryViewModelProtocol {
         callGalleryService()
     }
     
+    private func getLastOffetImageInsertion() -> Int {
+        var offset = 0
+        let galleryModelCount = galleryModel?.count ?? 0
+        if galleryModelCount > 0 {
+            offset = (galleryModelCount - 1) - (galleryModel?.lastIndex(where: { $0 is ImageInsertion}) ?? 0)
+        }
+        return offset
+    }
+    
     func callGalleryService() {
         guard loadMoreGallery.currentPage <= loadMoreGallery.totalPage else {
             return
         }
         galleryService.getGalleryData(feature: GalleryFeature.popular.rawValue, page: loadMoreGallery.currentPage + 1) { galleryList in
-            let galleryList = GalleryModel().toModel(galleryListResponse: galleryList)
-            let aaa  = self.manageAddOrAppendGalleryResponse(galleryPhotos: galleryList?.photos ?? [])
-            self.setGalleryModel(galleryPhotos: aaa)
-            self.loadMoreGallery = LoadMoreGallery(currentPage: galleryList?.currentPage ?? 0,
-                                                   totalPage: galleryList?.totalPage ?? 0)
+            
+            let offset = self.getLastOffetImageInsertion()
+            let galleryPhotos = galleryList.photos ?? []
+            
+            let photos: Array<GalleryItem> = GalleryModel().toModel(galleryPhotos: galleryPhotos, offset: offset)
+            
+            self.setGalleryModel(galleryPhotos: photos)
+            self.loadMoreGallery = LoadMoreGallery(currentPage: galleryList.currentPage ?? 0,
+                                                   totalPage: galleryList.totalPage ?? 0)
         } onError: {
             let errMsg = ErrorModel(title: "Sorry", message: "Internal server error, please try again later")
             self.errorModel = errMsg
@@ -50,32 +61,4 @@ class GalleryViewModel: NSObject, GalleryViewModelProtocol {
             galleryModel?.append(contentsOf: galleryPhotos)
         }
     }
-    private func manageAddOrAppendGalleryResponse(galleryPhotos: Array<GalleryItem>) -> Array<GalleryItem> {
-        var newItems: Array<GalleryItem> = []
-        var offset = 0
-        if (galleryModel?.count ?? 0 > 0) {
-            offset = ((galleryModel?.count ?? 0) - 1) - (galleryModel?.lastIndex(where: { $0 is ImageInsertion}) ?? 0)
-        }
-        
-        for (index, item) in galleryPhotos.enumerated() {
-            if ((index + offset) % 4 == 0 && index + offset != 0) {
-                newItems.append(ImageInsertion())
-            }
-            newItems.append(item)
-        }
-        
-        return newItems
-    }
-    
-    private func insertAssignedItemBetweenModel(photos: Array<GalleryItem>) {
-        photos.forEach { item in
-            let imageInsertion = ImageInsertion()
-            if (galleryModel?.count ?? 0 % 4 == 0 && galleryModel?.count != 0){
-                galleryModel?.append(imageInsertion)
-            }
-            
-            galleryModel?.append(item)
-        }
-    }
-    
 }
